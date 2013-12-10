@@ -19,7 +19,7 @@ cd $BUILD_DIR
 
 cd ${HOME}
 
-export FILE=xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
+export FILE=xerces-c-3.1.1-x86_64-linux-gcc-3.4
 
 if [ -f $FILE ];
 then
