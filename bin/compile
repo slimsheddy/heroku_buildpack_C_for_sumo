@@ -18,15 +18,26 @@ function indent() {
 cd $BUILD_DIR
 
 cd ${HOME}
-curl wget http://mirror.mel.bkb.net.au/pub/apache//xerces/c/3/binaries/xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz > xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
-tar xzvf xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
-echo `pwd`
-export XERCESCROOT=${HOME}/xerces-c-3.1.1-x86_64-linux-gcc-3.4
+
+export FILE=xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
+
+if [ -f $FILE ];
+then
+   echo "File $FILE exists."
+else
+	echo "File $FILE does not exist."
+	curl wget http://mirror.mel.bkb.net.au/pub/apache//xerces/c/3/binaries/xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz > xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
+	tar xzvf xerces-c-3.1.1-x86_64-linux-gcc-3.4.tar.gz
+	echo `pwd`
+	export XERCESCROOT=${HOME}/xerces-c-3.1.1-x86_64-linux-gcc-3.4
+fi
 
 export PATH="$PATH:$XERCESCROOT/bin"
 export LD_LIBRARY_PATH=$XERCESCROOT/lib:$LD_LIBRARY_PATH
 
 echo $XERCESCROOT
+
+cd $BUILD_DIR
 
 # configure
 if [ -f configure ]; then
