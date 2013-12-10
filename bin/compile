@@ -24,10 +24,11 @@ echo ${HOME}
 export XERCESCROOT=`pwd`/xerces-c-3.1.1
 cd $XERCESCROOT/src/xercesc
 echo "which autoconf"
-echo `which autoconf`
 echo `pwd`
 autoconf
+echo "autoconf completed"
 ./runConfigure -plinux -cgcc -xg++ -minmem -nsocket -tnative -rpthread -P$HOME
+echo "runconfigure completed"
 make
 make install
 
