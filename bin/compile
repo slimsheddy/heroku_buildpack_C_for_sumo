@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+set -e
+set -o pipefail
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+cd $BUILD_DIR
+
+#configure xerces-C first
+tar xvf xerces-c-3.1.1.tar
+export XERCESCROOT=${HOME}/xerces-c-3.1.1
+cd $XERCESCROOT/src/xercesc
+autoconf
+./runConfigure -plinux -cgcc -xg++ -minmem -nsocket -tnative -rpthread -P$HOME
+make
+make install
+
+cd $HOME
+
+# configure
+if [ -f configure ]; then
+  echo "-----> Configuring"
+  ./configure --with-xerces=$HOME 2>&1 | indent
+fi
+
+# make
+echo "-----> Compiling with Make"
+make 2>&1 | indent
