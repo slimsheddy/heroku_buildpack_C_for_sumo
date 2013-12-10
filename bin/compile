@@ -26,6 +26,8 @@ export XERCESCROOT=${HOME}/xerces-c-3.1.1-x86_64-linux-gcc-3.4
 export PATH="$PATH:$XERCESCROOT/bin"
 export LD_LIBRARY_PATH=$XERCESCROOT/lib:$LD_LIBRARY_PATH
 
+echo $XERCESCROOT
+
 # configure
 if [ -f configure ]; then
   echo "-----> Configuring"
