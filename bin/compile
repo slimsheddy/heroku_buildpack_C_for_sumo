@@ -22,8 +22,9 @@ tar xvf xerces-c-3.1.1.tar
 echo ${HOME}
 export XERCESCROOT=${HOME}/xerces-c-3.1.1
 cd $XERCESCROOT/src/xercesc
-echo 'which autoconf'
+echo "which autoconf"
 which autoconf
+pwd
 autoconf
 ./runConfigure -plinux -cgcc -xg++ -minmem -nsocket -tnative -rpthread -P$HOME
 make
