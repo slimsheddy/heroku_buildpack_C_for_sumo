@@ -39,7 +39,7 @@ echo $XERCESCROOT
 
 cd $BUILD_DIR
 
-apt-get install automake autoconf
+yum install automake autoconf
 
 # configure
 if [ -f configure ]; then
