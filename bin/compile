@@ -19,7 +19,7 @@ cd $BUILD_DIR
 
 #configure xerces-C first
 curl wget http://mirror.ventraip.net.au/apache//xerces/c/3/sources/xerces-c-3.1.1.tar.gz > xerces-c-3.1.1.tar.gz
-tar xvf xerces-c-3.1.1.tar
+tar xzvf xerces-c-3.1.1.tar.gz
 echo ${HOME}
 export XERCESCROOT=${HOME}/xerces-c-3.1.1
 cd $XERCESCROOT/src/xercesc
