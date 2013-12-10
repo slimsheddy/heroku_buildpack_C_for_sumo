@@ -39,8 +39,6 @@ echo $XERCESCROOT
 
 cd $BUILD_DIR
 
-yum install automake autoconf
-
 # configure
 if [ -f configure ]; then
   echo "-----> Configuring"
